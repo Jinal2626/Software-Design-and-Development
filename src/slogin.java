@@ -48,7 +48,7 @@ public class Slogin extends javax.swing.JFrame {
         jLabel2.setText("Password:");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        
+        jLable3.setText("SUPPLIER LOGIN");
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jButton1.setText("LOGIN");
@@ -159,7 +159,7 @@ public class Slogin extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null,"Invalid!! Try again..");
                 jTextField1.setText(null);
-                jTextField2.setText();
+                jTextField2.setText(null);
 
             }
                // TODO add your handling code here:
@@ -209,7 +209,7 @@ public class Slogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Slogin().setVisible();
+                new Slogin().setVisible(true);
             }
         });
     }
