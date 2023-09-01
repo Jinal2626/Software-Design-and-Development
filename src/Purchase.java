@@ -77,7 +77,7 @@ public class Purchase extends javax.swing.JFrame {
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex]
+                return canEdit [columnIndex];
             }
         });
         table.setRowHeight(25);
@@ -107,7 +107,7 @@ public class Purchase extends javax.swing.JFrame {
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt)
+                jButton2MouseClicked(evt);
             }
         });
 
@@ -311,7 +311,7 @@ public class Purchase extends javax.swing.JFrame {
             //con.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
-            //e.printStackTrace()
+            //e.printStackTrace();
         }
 
     }                                     
