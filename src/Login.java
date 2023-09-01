@@ -169,7 +169,7 @@ public class Login extends javax.swing.JDialog {
             {
                 JOptionPane.showMessageDialog(null,"Invalid!! Try again..");
                 uname.setText(null);
-                pass.setText(ull);
+                pass.setText(null);
 
             }
         }
@@ -219,7 +219,7 @@ public class Login extends javax.swing.JDialog {
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0
+                        System.exit(0);
                     }
                 });
                 dialog.setVisible(true);
