@@ -240,9 +240,27 @@ public class Track extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Track().setVisible(true);
+                new addtocart().setVisible(true);
             }
         });
     }             
+// Variables declaration - do not modify                     
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable table2;
+    // End of variables declaration                   
 }
+
+
+
+
+}
+
+
+
+
 
