@@ -254,10 +254,6 @@ public class Track extends javax.swing.JFrame {
     private javax.swing.JTable table2;
     // End of variables declaration                   
 }
-
-
-
-
 }
 
 
