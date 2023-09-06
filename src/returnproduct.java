@@ -223,7 +223,7 @@ this.setVisible(false);
 
   DefaultTableModel model = (DefaultTableModel) table2.getModel();   
            int selectedRowIndex =table2.getSelectedRow();
-          String a=model.getValueAt(selectedRowIndex).toString()
+          String a=model.getValueAt(selectedRowIndex,0).toString();
          
             String c1=model.getValueAt(selectedRowIndex,2).toString();
             
@@ -243,7 +243,7 @@ this.setVisible(false);
                   int id2=Integer.parseInt(id1);
         
                  int id3=id2+id;
-               s.executeUpdate("Update inventory set quantity="+id3+" where item_id="+" "+s1+" ");
+               s.executeUpdate("Update inventory set quantity="+id3+" where item_id="+"'"+s1+"'");
        
            }
          /*     while(rs1.next())
