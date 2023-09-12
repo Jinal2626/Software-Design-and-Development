@@ -1,0 +1,299 @@
+	-- phpMyAdmin SQL Dump
+	-- version 5.1.1
+	-- https://www.phpmyadmin.net/
+	--
+	-- Host: 127.0.0.1
+	-- Generation Time: Sept 06, 2023 at 09:28 AM
+	-- Server version: 10.4.21
+	-- PHP Version: 8.0.10
+
+	SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+	START TRANSACTION;
+	SET time_zone = "+00:00";
+
+
+	/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+	/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+	/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+	/*!40101 SET NAMES utf8mb4 */;
+
+	--
+	-- Database: `FurnitureStockManagementSystem`
+	--
+
+	-- --------------------------------------------------------
+
+	--
+	-- Table structure for table `bill`
+	--
+
+	CREATE TABLE `bill` (
+	   `Item_id` varchar(255) NOT NULL,
+	  `Item_number` varchar(255) NOT NULL,
+	  `Quantity` int(25) NOT NULL,
+	  `price` double(50,2) NOT NULL,
+	  `total_price` double(50,2) NOT NULL,
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+	-- --------------------------------------------------------
+
+	--
+	-- Table structure for table `search_product`
+	--
+
+	CREATE TABLE `search_product` (
+	  `item_id` int(11) NOT NULL,
+	  `item_name` varchar(255) NOT NULL,
+	  `quantity` int(11) NOT NULL,
+	  `price` double(50,2) NOT NULL,
+	  `mfd` double(50,2) NOT NULL,
+	  `exp` double(50,2) NOT NULL,
+	  `batchno` double(50,2) NOT NULL,
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+	--
+	-- Dumping data for table `search_product`
+	--
+
+	INSERT INTO `search_product` (`item_id`, `item_name`, `quantity`,'price','mdf','exp','batchno') VALUES
+	(F5, 'Chair', '3','450', '2022','2028','B44' ),
+	(F8, 'Table', '1','100', '2022','2028','B41'),
+	(F9, 'Wood_Bed', '1','500', '2022','2028','B40');
+
+	-- --------------------------------------------------------
+
+	--
+	-- Table structure for table `track`
+	--
+
+	CREATE TABLE `track` (
+	  `bill_no` varchar(255) NOT NULL,
+	  `item_id` int(11) NOT NUL,
+	  `item_name` varchar(255) NOT NULL,
+	  `quantity` int(11) NOT NULL,
+	  `price` double(50,2) NOT NULL
+	 'date' DATEVALUE(""),
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+	--
+	-- Dumping data for table `track`
+	--
+
+	INSERT INTO `track` (`bill_no`, `item_id`, `item_name`, `quantity`, `price`,'date) VALUES
+	(1, '01', 'F3','Chair ', '1', '450.00','Sept 01, 2023'),
+	(2, '02', 'F7', 'Table', '2', '100.00','Sept 01, 2023'),
+	(3, '03', 'F8','Sofa', '4', '500.00','Sept 01, 2023');
+
+	-- --------------------------------------------------------
+
+	--
+	-- Table structure for table `purchase`
+	--
+
+	CREATE TABLE `purchase` (
+	   `item_id` int(11) NOT NUL,
+	  `item_number` varchar(255) NOT NULL,
+	  `quantity` int(25) NOT NULL,
+	  `price` double(50,2) NOT NULL,
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+	--
+	-- Dumping data for table `purchase`
+	--
+
+	INSERT INTO `purchase` (`Item_Id`, `Item_Name`, `Quantity(in_lit_kg)`, `Price_Per_Unit`, `Total_Price') VALUES
+	(1, '1F123', 'Bed','5kg', '500', '200000.00'),
+	(2, '1F88', 'Table', '3kg', '100','100000.00');
+
+
+	-- --------------------------------------------------------
+
+	CREATE TABLE `inventory` (
+	  `item_id` int(11) NOT NULL,
+	  `item_name` varchar(255) NOT NULL,
+	  `quantity` int(11) NOT NULL,
+	  `price` double(50,2) NOT NULL,
+	  `mfd` double(50,2) NOT NULL,
+	  `exp` double(50,2) NOT NULL,
+	  `batchno` double(50,2) NOT NULL,
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+	--
+	-- Dumping data for table `inventory`
+	--
+
+	INSERT INTO `inventory` (`item_id`, `item_name`, `quantity`,'price','mdf','exp','batchno') VALUES
+	(F5, 'Chair', '14','450', '2022','2028','B44' ),
+	(F8, 'Table', '45','100', '2022','2028','B41'),
+	(F9, 'Wood_Bed', '10','500', '2022','2028','B40');
+
+
+	-- --------------------------------------------------------
+
+	--
+	-- Table structure for table `add_product`
+	--
+
+	CREATE TABLE `add_product` (
+	   `item_id` int(11) NOT NUL,
+	  `item_number` varchar(255) NOT NULL,
+	  `quantity` int(25) NOT NULL,
+	  `price` double(50,2) NOT NULL,
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+	--
+	-- Dumping data for table `add_product`
+	--
+
+	INSERT INTO `add_product` (`Item_Id`, `Item_Name`, `Quantity(in_lit_kg)`, `Price_Per_Unit`, `Total_Price') VALUES
+	(1, '1F123', 'Bed','5kg', '500', '200000.00'),
+	(2, '1F88', 'Table', '3kg', '100','100000.00');
+
+	-- --------------------------------------------------------
+
+	--
+	-- Table structure for table `return_product`
+	--
+
+	CREATE TABLE `return_product` (
+	   `item_id` int(11) NOT NUL,
+	  `item_number` varchar(255) NOT NULL,
+	  `quantity` int(25) NOT NULL,
+	  `price` double(50,2) NOT NULL,
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+	--
+	-- Dumping data for table `return_product`
+	--
+
+	INSERT INTO `return_product` (`item_id`, `item_name`, `price`, `total_price') VALUES
+	(1, '1F123', 'Bed', '500', '200000.00'),
+
+
+	-- --------------------------------------------------------
+	--
+	-- Table structure for table `supplier_approve`
+	--
+
+	CREATE TABLE `supplier_approve` (
+	   `item_id` int(11) NOT NUL,
+	  `item_number` varchar(255) NOT NULL,
+	  `quantity` int(25) NOT NULL,
+	  `price` double(50,2) NOT NULL,
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+	--
+	-- Dumping data for table `supplier_approve`
+	--
+
+	INSERT INTO `supplier_approve` (`item_id`, `item_name`, `price`, `total_price') VALUES
+	(1, '1F123', 'Bed', '500', '200000.00'),
+	--
+	-- Indexes for dumped tables
+	--
+
+	--
+	-- Indexes for table `bill`
+	--
+	ALTER TABLE `bill`
+	  ADD PRIMARY KEY (`item_id`);
+
+	--
+	-- Indexes for table `search_product`
+	--
+	ALTER TABLE `search_product`
+	  ADD PRIMARY KEY (`item_id`);
+
+	--
+	-- Indexes for table `track`
+	--
+	ALTER TABLE `track`
+	  ADD PRIMARY KEY (`id`),
+	  ADD UNIQUE KEY `id` (`item_id`);
+
+	--
+	-- Indexes for table `purchase`
+	--
+	ALTER TABLE `products`
+	  ADD PRIMARY KEY (`id`);
+
+	--
+	-- Indexes for table `inventory`
+	--
+	ALTER TABLE `inventory`
+	  ADD PRIMARY KEY (`item_id`);
+
+	--
+	-- Indexes for table `add_product`
+	--
+	ALTER TABLE `add_product`
+	  ADD PRIMARY KEY (`id`),
+	  ADD KEY `cust_id` (`item_id`);
+
+	--
+	-- Indexes for table `return_product`
+	--
+	ALTER TABLE `return_product`
+	  ADD PRIMARY KEY (`item_id`);
+
+	--
+	-- AUTO_INCREMENT for dumped tables
+	--
+
+	--
+	--
+	-- AUTO_INCREMENT for table `bill`
+	--
+	ALTER TABLE `bill`
+	  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+
+	--
+	-- AUTO_INCREMENT for table `search_product`
+	--
+	ALTER TABLE `search_product`
+	  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+
+	--
+	-- AUTO_INCREMENT for table `track`
+	--
+	ALTER TABLE `track`
+	  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+	--
+	-- AUTO_INCREMENT for table `purchase`
+	--
+	ALTER TABLE `purchase`
+	  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+	--
+	-- AUTO_INCREMENT for table `inventory`
+	--
+	ALTER TABLE `inventory`
+	  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+	--
+	-- AUTO_INCREMENT for table `add_product`
+	--
+	ALTER TABLE `add_product`
+	  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+	--
+	-- AUTO_INCREMENT for table `add_product`
+	--
+	ALTER TABLE `add_product`
+	  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+	--
+	-- Constraints for dumped tables
+	--
+
+	--
+	-- Constraints for table `return_product`
+	--
+	ALTER TABLE `return_product`
+	  ADD CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `purchase` (`id`);
+	COMMIT;
+
+	/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+	/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+	/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
